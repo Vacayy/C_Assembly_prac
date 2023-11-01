@@ -1,5 +1,5 @@
 	.text
-	.file	"if_2.c"
+	.file	"if_3.c"
 	.globl	main                            # -- Begin function main
 	.p2align	4, 0x90
 	.type	main,@function
@@ -11,6 +11,7 @@ main:                                   # @main
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
+	subq	$32, %rsp
 	movl	$0, -4(%rbp)
 	movl	$1, -8(%rbp)
 	movl	$2, -12(%rbp)
@@ -43,22 +44,26 @@ main:                                   # @main
 	jmp	.LBB0_6
 .LBB0_5:
 	movl	$3333333, -20(%rbp)             # imm = 0x32DCD5
-# -----------------------
 .LBB0_6:
-	movl	$0, -24(%rbp) # int i = 0 선언 
+	movl	-20(%rbp), %esi
+	movabsq	$.L.str, %rdi
+	movb	$0, %al
+	callq	printf
+	movl	$0, -24(%rbp)
 .LBB0_7:                                # =>This Inner Loop Header: Depth=1
-	cmpl	$4, -24(%rbp) # 4와 i 비교
+	cmpl	$4, -24(%rbp)
 	jge	.LBB0_10
 # %bb.8:                                #   in Loop: Header=BB0_7 Depth=1
-	movl	-24(%rbp), %eax # i를 계산대에 올림
-	movl	%eax, -28(%rbp) # int y = i (-28 위치에 y 변수 할당)
+	movl	-24(%rbp), %eax
+	movl	%eax, -28(%rbp)
 # %bb.9:                                #   in Loop: Header=BB0_7 Depth=1
-	movl	-24(%rbp), %eax # i를 계산대에 올림
-	addl	$1, %eax # 1을 더하는 연산 수행
-	movl	%eax, -24(%rbp) # 계산 결과를 i에 저장
+	movl	-24(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -24(%rbp)
 	jmp	.LBB0_7
 .LBB0_10:
 	movl	-4(%rbp), %eax
+	addq	$32, %rsp
 	popq	%rbp
 	.cfi_def_cfa %rsp, 8
 	retq
@@ -66,6 +71,13 @@ main:                                   # @main
 	.size	main, .Lfunc_end0-main
 	.cfi_endproc
                                         # -- End function
+	.type	.L.str,@object                  # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	"%d 999999999"
+	.size	.L.str, 13
+
 	.ident	"Apple clang version 14.0.0 (clang-1400.0.29.202)"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
+	.addrsig_sym printf

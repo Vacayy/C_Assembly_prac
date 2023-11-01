@@ -1,1 +1,6 @@
+[헤더파일 제외하고 .s 추출]
 clang -S -o hello.s hello.c --target=x86_64
+
+[헤더파일 포함]
+clang -S -o loop_1.s loop_1.c --target=x86_64 -I /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/
+
