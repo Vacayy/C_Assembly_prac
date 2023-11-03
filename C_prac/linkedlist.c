@@ -16,12 +16,8 @@ struct Node {
 
 int main(void){
 
-    //// 연결 리스트 생성, 노드 추가
-    // struct Node* head = NULL; // stuct Node 타입 객체를 가리키는 head 포인터 생성, NULL로 초기화
-    // 첫번째 노드 생성
-    // head = (struct Node*)malloc(sizeof(struct Node)); // head가 가리키는 곳에 노드 구조체의 사이즈만큼의 메모리를 할당해라!
+    //// 연결 리스트 생성, 노드 추가    
     struct Node* head = (struct Node*)malloc(sizeof(struct Node)); // head가 가리키는 곳에 노드 구조체의 사이즈만큼의 메모리를 할당해라!
-
     head -> data = 10; // head가 가리키는 객체의 data 필드에 10을 저장해라!
     head -> next = NULL; // head가 가리키는 객체의 next 필드에는 NULL 을 저장! (이게 마지막 노드)
 

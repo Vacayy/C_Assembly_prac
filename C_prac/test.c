@@ -5,9 +5,9 @@ int main(void){
     long y = 1;
     long t1 = x^y;
 
-    long a = 10;
-    long b = 8;
-    long t2 = a^b;
+    long a = 10; // 1010
+    long b = 8;  // 1000
+    long t2 = a^b; // 0010 = 2
 
-    printf("x와 y 일치?: %ld // a와 b 일치?: %ld", t1, t2);
+    printf("a^b: %ld", t2);
 }

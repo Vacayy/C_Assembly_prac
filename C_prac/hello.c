@@ -1,5 +1,5 @@
-// #include <stdio.h> // 헤더파일 for 표준 입출력 함수 (printf, scanf ..)
-// #include <string.h> // 헤더파일 for 표준 문자열 처리 함수
+#include <stdio.h> // 헤더파일 for 표준 입출력 함수 (printf, scanf ..)
+#include <string.h> // 헤더파일 for 표준 문자열 처리 함수
 
 int main(void)
 {
