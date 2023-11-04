@@ -51,13 +51,23 @@ int main(void)
     
     if (test_if == 1){
         printf("1입니다! \n");
+    } else if (test_if == 2) { // elif 
+            printf("2입니다! \n");
+    } else if (test_if == 3) { // elif 
+            printf("3 입니다! \n");
     } else {
-        if (test_if == 2) { // elif 
-            printf("2입니다! \n");} 
-        if (test_if == 3) { // elif
-            printf("3입니다! \n");} 
-        else { // else
-            printf("1,2,3 아님 \n");} 
+        printf("1,2,3 아님");
     };
+ 
+    // if (test_if == 1){
+    //     printf("1입니다! \n");
+    // } else {
+    //     if (test_if == 2) { // elif 
+    //         printf("2입니다! \n");} 
+    //     if (test_if == 3) { // elif
+    //         printf("3입니다! \n");} 
+    //     else { // else
+    //         printf("1,2,3 아님 \n");} 
+    // };
     return 0;
 }
