@@ -49,8 +49,8 @@ int main(void)
     printf("숫자 입력해보세요: ");
     scanf("%i", &test_if); // 그냥 test_if가 아니라 test_if의 주소를 줘야 함
     
-    if (test_if == 1){
-        printf("1입니다! \n");
+    if (test_if != 1){
+        printf("1아닙니다! \n");
     } else if (test_if == 2) { // elif 
             printf("2입니다! \n");
     } else if (test_if == 3) { // elif 
