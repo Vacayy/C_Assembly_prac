@@ -1,12 +1,33 @@
 #include <stdio.h>
 #include <string.h>
 
+struct Date {
+    int year;
+    int month;
+    int day;
+};
 
 struct Student {
     char name[50];
     int id;
     float grade;
+    struct Date birthday; // Date 구조체 변수 birthday 를 생성 후 Student 구조체 멤버로 포함
 };
+
+// typedef struct {
+//     int year;
+//     int month;
+//     int day;
+// } Date;
+
+// typedef struct {
+//     char name[50];
+//     int id;
+//     float grade;
+//     Date birthday; // Date 구조체 변수 birthday 를 생성 후 Student 구조체 멤버로 포함
+// } Student;
+
+
 
 // 함수 프로토타입 선언 (컴파일러에게 함수 존재 알려주기)
 void printName(struct Student someone);
@@ -55,6 +76,27 @@ int main(void){
     struct Student *p10 = &student10; // 선언한 놈을 가리키는 포인터 p10
 
     p10 -> id = 10; // p10이 담고있는 주소로 가서(->) id를 10으로 지정하라
+    
+    ////////// 중첩 구조체 사용 ////////////
+    strcpy(students[1].name, "james");
+    students[1].id = 5;
+    students[1].grade = 4.3;
+    students[1].birthday.year = 2000;
+    students[1].birthday.month = 3;
+    students[1].birthday.day = 29;
+
+    /////////// 중첩 구조체 - 구조체 포인터 활용 ////////
+    struct Student *p3 = &students[3];
+    p3->id = 6;
+    p3->grade = 3.5;
+    p3->birthday.year = 1999;
+    p3->birthday.month = 10;
+    p3->birthday.day = 7;
+
+    printf("%i", p3->id); // 6
+
+    
+
     
 
 
